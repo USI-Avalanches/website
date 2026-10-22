@@ -42,10 +42,10 @@ const base = import.meta.env.BASE_URL;
 	.menu-icon span { width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
 	.partner-footer { max-width: 1200px; margin: 2rem auto 0; padding: 2rem 1.5rem 3rem; border-top: 1px solid #ffffff20; text-align: center; }
 	.partner-footer h2 { margin: 0 0 1.5rem; color: #d8e0e8; font-size: 1.45rem; text-transform: uppercase; letter-spacing: .08em; }
-	.partner-logos { display: flex; align-items: center; justify-content: center; gap: clamp(2rem, 8vw, 6rem); flex-wrap: wrap; }
-	.partner-logos a { display: grid; place-items: center; min-width: 150px; height: 82px; }
-	.partner-logos img { max-width: 210px; max-height: 72px; width: auto; height: auto; object-fit: contain; }
-	.partner-logos a:first-child img { max-width: 190px; }
+	.partner-logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; justify-items: center; gap: 1.5rem; }
+	.partner-logos a { display: grid; place-items: center; width: 100%; min-width: 0; height: 82px; }
+	.partner-logos img { max-width: min(100%, 210px); max-height: 72px; width: auto; height: auto; object-fit: contain; }
+	.partner-logos a:first-child img { max-width: min(100%, 190px); }
 	.page-content { max-width: 1200px; min-height: 45vh; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 	.page-content-home { max-width: none; padding: 0; }
 	.hero { min-height: min(700px, 78vh); max-width: 1200px; margin: 0 auto; padding: 8vh 1.5rem 5rem; display: flex; align-items: center; }
@@ -76,12 +76,13 @@ const base = import.meta.env.BASE_URL;
 		.home-grid, .tile-grid { grid-template-columns: 1fr; }
 		.home-section { padding-top: 3rem; padding-bottom: 3rem; }
 		.partner-footer { padding-top: 1.5rem; }
-		.partner-logos { gap: 1.2rem 2rem; }
-		.partner-logos a { min-width: 120px; height: 60px; }
-		.partner-logos img, .partner-logos a:first-child img { max-width: 155px; max-height: 54px; }
+		.partner-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+		.partner-logos a { height: 60px; }
+		.partner-logos img, .partner-logos a:first-child img { max-width: min(100%, 155px); max-height: 54px; }
 	}
 	@media (min-width: 701px) and (max-width: 900px) {
 		.tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 		.home-tile:last-child { grid-column: 1 / -1; justify-self: center; width: calc((100% - 1rem) / 2); }
+		.partner-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 640px; margin: 0 auto; }
 	}
 </style>
