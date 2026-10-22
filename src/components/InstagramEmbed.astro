@@ -1,0 +1,40 @@
+<section class="instagram-section" aria-labelledby="instagram-heading">
+	<div class="instagram-copy">
+		<p class="eyebrow">USI Avalanches auf Instagram</p>
+		<h2 id="instagram-heading">Vom Spielfeld</h2>
+		<p>Einblicke aus dem Training und von unseren Spieltagen findest du auf Instagram.</p>
+		<a class="button" href="https://www.instagram.com/usi_avalanches_ff" target="_blank" rel="noreferrer">Instagram öffnen</a>
+	</div>
+	<iframe
+		title="Instagram-Profil der USI Avalanches"
+		src="https://www.instagram.com/usi_avalanches_ff/embed"
+		loading="lazy"
+		allowtransparency="true"
+	></iframe>
+</section>
+
+<style>
+	.instagram-section {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 4rem 1.5rem;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(300px, 568px);
+		align-items: center;
+		gap: clamp(2rem, 7vw, 6rem);
+	}
+	.instagram-copy { max-width: 32rem; }
+	.instagram-copy h2 { margin: 0 0 1rem; font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
+	.instagram-copy > p:not(.eyebrow) { color: #e0e8f0; font: 400 1.05rem/1.7 Inter, sans-serif; }
+	.instagram-section iframe {
+		width: 100%;
+		min-height: 600px;
+		border: 0;
+		border-radius: .75rem;
+		background: transparent;
+	}
+	@media (max-width: 700px) {
+		.instagram-section { grid-template-columns: 1fr; padding-top: 3rem; padding-bottom: 3rem; gap: 1rem; }
+		.instagram-section iframe { max-width: 568px; min-height: 600px; justify-self: center; }
+	}
+</style>
