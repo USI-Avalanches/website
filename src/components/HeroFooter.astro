@@ -22,8 +22,8 @@ const content = [
       text: "Facebook",
       link: 'https://www.facebook.com/USIAvalanches/',
     }, {
-      type: 'button',
-      text: "Newsletter abonnieren",
+      type: 'link',
+      text: "Newsletter",
       link: 'https://eepurl.com/gpkvIn',
     }],
   [{
@@ -46,7 +46,7 @@ const content = [
 ---
 
 <footer
-  class="snap-end container bg-background/90 backdrop-blur-sm mx-auto mt-48 rounded-t-3xl pb-12 md:pb-4"
+  class="snap-end container mx-auto mt-48 pb-12 md:pb-4"
 >
   <div class="">
     <section class="grid grid-cols-1 md:grid-cols-3 pt-10 md:pt-0">
@@ -58,8 +58,6 @@ const content = [
                 return <h1 class="footer-heading uppercase text-2xl italic text-white">{item.text}</h1>
               } else if (item.type==='link') {
                 return <a class="footer-link" href={item.link}><p class="text-white">{item.text}</p></a>
-              } else if (item.type === 'button') {
-                return <a class="button newsletter-button" href={item.link} target="_blank" rel="noreferrer">{item.text}</a>
             } else {
               return null
             }})}
@@ -79,5 +77,4 @@ const content = [
     margin-top: 1rem;
   }
 
-  .newsletter-button { margin-top: .5rem; font-size: .72rem; }
 </style>

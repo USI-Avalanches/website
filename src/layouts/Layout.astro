@@ -43,8 +43,10 @@ const base = import.meta.env.BASE_URL;
 	.partner-footer { max-width: 1200px; margin: 2rem auto 0; padding: 2rem 1.5rem 3rem; border-top: 1px solid #ffffff20; text-align: center; }
 	.partner-footer h2 { margin: 0 0 1.5rem; color: #d8e0e8; font-size: 1.45rem; text-transform: uppercase; letter-spacing: .08em; }
 	.partner-logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; justify-items: center; gap: 1.5rem; }
-	.partner-logos a { display: grid; place-items: center; width: 100%; min-width: 0; height: 82px; }
-	.partner-logos img { max-width: min(100%, 210px); max-height: 72px; width: auto; height: auto; object-fit: contain; }
+	.partner-logos a { display: grid; place-items: center; width: 100%; min-width: 0; height: 96px; padding: 1rem 1.25rem; border: 1px solid #ffffff90; border-radius: .55rem; background: #fff; box-shadow: 0 8px 22px #0004; transition: transform .2s ease, box-shadow .2s ease; }
+	.partner-logos a:hover { transform: translateY(-3px); box-shadow: 0 12px 28px #0006; }
+	.partner-logos a:focus-visible { outline: 3px solid var(--ice); outline-offset: 4px; }
+	.partner-logos img { max-width: min(100%, 210px); max-height: 64px; width: auto; height: auto; object-fit: contain; }
 	.partner-logos a:first-child img { max-width: min(100%, 190px); }
 	.page-content { max-width: 1200px; min-height: 45vh; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 	.page-content-home { max-width: none; padding: 0; }
@@ -77,8 +79,8 @@ const base = import.meta.env.BASE_URL;
 		.home-section { padding-top: 3rem; padding-bottom: 3rem; }
 		.partner-footer { padding-top: 1.5rem; }
 		.partner-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-		.partner-logos a { height: 60px; }
-		.partner-logos img, .partner-logos a:first-child img { max-width: min(100%, 155px); max-height: 54px; }
+		.partner-logos a { height: 76px; padding: .65rem .75rem; }
+		.partner-logos img, .partner-logos a:first-child img { max-width: min(100%, 155px); max-height: 50px; }
 	}
 	@media (min-width: 701px) and (max-width: 900px) {
 		.tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
