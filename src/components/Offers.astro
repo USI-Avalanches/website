@@ -1,0 +1,27 @@
+---
+import ImageCard from "./ImageCard.astro";
+interface Props {
+  offers: {
+    offerText: string;
+    imageURL: string;
+    bgPositionTop: boolean;
+    link: string;
+  }[];
+  title?: string;
+  text?: string;
+}
+const { offers, title, text } = Astro.props;
+---
+
+
+    <section class="">
+        { title ? <h1 class="text-white text-4xl md:text-5xl uppercase text-center">{title}</h1> : null }
+        { text ? <p class="text-white text-center mt-8">{text}</p> : null }
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        {
+            offers.map((offer)=>(
+                <ImageCard imageURL={offer.imageURL} text={offer.offerText} backgroundPositionTop={offer.bgPositionTop} link={offer.link}/>
+            ))
+        }
+        </div>
+      </section>

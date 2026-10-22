@@ -1,0 +1,33 @@
+---
+import HeroFooter from '../components/HeroFooter.astro';
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+	title: string;
+	seoTitle?: string;
+	footerCallToAction?: string;
+	increasedBgTransparency?: boolean;
+}
+
+const { title, seoTitle } = Astro.props;
+---
+
+<Layout title={title} seoTitle={seoTitle}>
+	<div class="site-shell">
+		<header class="site-header">
+			<a class="brand" href="/" aria-label="USI Avalanches – Startseite">
+				<img src="/images/avalanche-logo.png" alt="USI Avalanches" />
+			</a>
+			<nav aria-label="Hauptnavigation">
+				<a href="/wer-wir-sind">Team</a>
+				<a href="/was-ist-flagfootball">Flag Football</a>
+				<a href="/liga">Liga</a>
+				<a href="/kontakt">Kontakt</a>
+			</nav>
+		</header>
+		<main class:list={["page-content", { "page-content-home": title === 'USI Avalanches' }]}>
+			<slot />
+		</main>
+		<HeroFooter />
+	</div>
+</Layout>

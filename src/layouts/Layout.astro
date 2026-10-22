@@ -1,0 +1,58 @@
+---
+import { SEO } from 'astro-seo';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props { title?: string; seoTitle?: string; }
+const { title = 'USI Avalanches', seoTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="USI Avalanches – Flag Football aus Innsbruck. Lerne unser Team und den kontaktlosen Footballsport kennen." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<link rel="icon" type="image/png" href="/images/avalanche-logo.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#101923" />
+		<SEO title={seoTitle ?? title} description="USI Avalanches – Flag Football aus Innsbruck." titleDefault="USI Avalanches" titleTemplate="%s | USI Avalanches" openGraph={{ basic: { title: seoTitle ?? title, type: 'website', image: 'https://www.usi-avalanches.at/wp-content/uploads/2019/04/USI-Avalanches-final-freigestellt.png' }, optional: { locale: 'de_AT' } }} />
+		<ViewTransitions />
+	</head>
+	<body class="flex-col flex min-h-screen bg-background"><slot /></body>
+</html>
+
+<style is:global>
+	:root { color-scheme: dark; --ice: #76a8d3; --red: #dc222d; }
+	h1, h2, h3, .bigFont { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
+	p { font-family: 'Inter', sans-serif; font-weight: 400; }
+	body { color: #f7f9fb; background: #101923; }
+	.site-shell { min-height: 100vh; background-color: #101923; background-image: linear-gradient(180deg, rgb(16 25 35 / 18%) 0%, rgb(16 25 35 / 48%) 24%, rgb(16 25 35 / 88%) 58%, #101923 82%, #101923 100%), url('/images/avalanche-stone.jpg'); background-position: center top; background-size: 100% 60vw, 100% auto; background-repeat: no-repeat; }
+	.site-header { max-width: 1200px; margin: 0 auto; padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+	.brand img { width: 92px; height: 70px; object-fit: contain; }
+	.site-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(.8rem, 2vw, 2rem); }
+	.site-header nav a { color: #f7f9fb; font: 600 .85rem Inter, sans-serif; text-decoration: none; text-transform: uppercase; letter-spacing: .08em; }
+	.site-header nav a:hover { color: var(--ice); }
+	.page-content { max-width: 1200px; min-height: 45vh; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+	.page-content-home { max-width: none; padding: 0; }
+	.hero { min-height: min(700px, 78vh); max-width: 1200px; margin: 0 auto; padding: 8vh 1.5rem 5rem; display: flex; align-items: center; }
+	.hero-copy { max-width: 720px; }
+	.eyebrow { color: var(--ice); font: 700 .8rem Inter, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+	.hero h1 { margin: .5rem 0 1rem; font-size: clamp(4rem, 12vw, 9rem); line-height: .82; text-transform: uppercase; text-shadow: 0 5px 25px #0009; }
+	.hero h1 span { display: block; color: var(--ice); }
+	.hero p { max-width: 560px; font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #e0e8f0; }
+	.button { display: inline-flex; margin-top: 1rem; padding: .9rem 1.25rem; background: var(--ice); color: #101923; border-radius: .35rem; text-decoration: none; font: 700 .85rem Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+	.home-section { padding: 4rem max(1.5rem, calc((100vw - 1200px)/2)); }
+	.home-section h2 { margin: 0 0 1rem; font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
+	.home-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
+	.team-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: .5rem; box-shadow: 0 20px 50px #0007; }
+	.tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+	.home-tile { position: relative; isolation: isolate; display: flex; aspect-ratio: 16 / 9; min-height: 180px; align-items: flex-end; overflow: hidden; border: 1px solid #ffffff30; border-radius: .5rem; color: white; text-decoration: none; }
+	.home-tile img, .tile-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+	.home-tile img { z-index: -1; object-fit: cover; }
+	.tile-shade { z-index: 0; background: linear-gradient(0deg,#081321e8,transparent 80%); }
+	.home-tile h3 { position: relative; z-index: 1; margin: 0; padding: 1.4rem; font-size: 2rem; text-transform: uppercase; }
+	@media (max-width: 700px) { .site-header { align-items: flex-start; } .brand img { width: 66px; height: 54px; } .site-header nav { gap: .6rem .9rem; } .site-header nav a { font-size: .68rem; } .hero { min-height: 65vh; padding-top: 5rem; } .home-grid, .tile-grid { grid-template-columns: 1fr; } .home-section { padding-top: 3rem; padding-bottom: 3rem; } }
+</style>

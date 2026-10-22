@@ -1,0 +1,28 @@
+---
+interface Props {
+  text: string;
+  imageURL: string;
+  backgroundPositionTop?: boolean;
+  link?: string;
+}
+const { text = "", imageURL = "", backgroundPositionTop = false, link } = Astro.props;
+const imageStyle = {
+  backgroundImage: `url(${imageURL})`,
+};
+---
+
+<a
+  class:list={
+  [
+    {
+      "flex justify-center items-center group bg-cover py-2 bg-gray-400 md:bg-gray-500 bg-blend-multiply cursor-pointer hover:bg-gray-300 hover:scale-105 transition-all rounded-3xl w-full aspect-square overflow-hidden":true,
+       'bg-top': backgroundPositionTop,
+       'bg-center': !backgroundPositionTop,
+     }
+   ]
+  }
+  href={link}
+  style={imageStyle}
+>
+  <h2 class="transition-all text-white uppercase text-3xl p-2 sm:text-2xl md:text-xl lg:text-4xl group-hover:drop-shadow-avalanche-shadow drop-shadow-avalanche-shadow-invisible text-center" transition:name="page-title" transition:animate="fade">{text}</h2>
+</a>

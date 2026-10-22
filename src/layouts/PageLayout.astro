@@ -1,0 +1,27 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+	title: string;
+	frontmatter: {
+		title: string;
+	};
+}
+
+const { title, frontmatter } = Astro.props;
+---
+
+<BaseLayout title={title} seoTitle={frontmatter.title}>
+	<article class="subpage prose lg:prose-xl prose-headings:text-white prose-a:text-sky-300 prose-li:font-normal prose-strong:text-white prose-em:text-white prose-img:rounded-3xl">
+		<h1>{frontmatter.title}</h1>
+		<slot />
+	</article>
+</BaseLayout>
+
+<style is:global>
+	.subpage { max-width: 58rem; margin: 0 auto 2rem; padding: clamp(1.25rem, 4vw, 2.5rem) 0; color: #f7f9fb; line-height: 1.75; text-shadow: 0 1px 12px rgb(0 0 0 / 75%); }
+	.subpage h1 { margin: 0 0 2rem; color: #fff; font-size: clamp(2.5rem, 6vw, 4rem); line-height: .98; text-align: center; text-transform: uppercase; text-shadow: 0 3px 5px rgb(0 0 0 / 95%), 0 8px 24px rgb(0 0 0 / 85%); }
+	.subpage p, .subpage li { color: #f0f3f6; }
+	.subpage .button { text-shadow: none; }
+	lite-youtube { @apply rounded-2xl; }
+</style>
