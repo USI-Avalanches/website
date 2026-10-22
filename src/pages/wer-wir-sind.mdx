@@ -3,7 +3,7 @@ layout: ../layouts/PageLayout.astro
 title: Wer wir sind
 ---
 
-![Mannschaftsfoto der USI Avalanches](/images/avalanche-team.png)
+<img src={`${import.meta.env.BASE_URL}images/avalanche-team.png`} alt="Mannschaftsfoto der USI Avalanches" />
 
 Unser Team formierte sich 2007 als USI Panthers aus einer Gruppe Tiroler Studierender, die im USI-Sportkurs Flag Football spielten. Seit 2015 sind wir ein Kaderteam des Universitätssportinstituts Innsbruck. 2019 traten wir als USI Avalanches an.
 
@@ -19,4 +19,4 @@ Heute spielen bei uns Studierende und Absolvent:innen aus vielen Fachrichtungen.
 
 Komm zum Probetraining und lerne Flag Football und unser Team kennen.
 
-<a class="button" href="/kontakt">Kontakt aufnehmen</a>
+<a class="button" href={`${import.meta.env.BASE_URL}kontakt`}>Kontakt aufnehmen</a>

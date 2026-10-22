@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { callToAction } = Astro.props;
+const base = import.meta.env.BASE_URL;
 const content = [
   [{
       type: 'heading',
@@ -27,11 +28,11 @@ const content = [
     }, {
       type: 'link',
       text: "Impressum",
-      link: '/impressum',
+      link: `${base}impressum`,
     }, {
       type: 'link',
       text: "Datenschutzerklärung",
-      link: '/datenschutz',
+      link: `${base}datenschutz`,
     }, {
       type: 'link',
       text: "Team Shop",
@@ -60,7 +61,7 @@ const content = [
         ))
       }
       <div class="p-4 col-span-1 flex justify-center content-center items-center" >
-      <img src="/images/avalanche-logo.png" alt="USI Avalanches" class="max-h-28 md:max-h-48 w-auto" />
+      <img src={`${base}images/avalanche-logo.png`} alt="USI Avalanches" class="max-h-28 md:max-h-48 w-auto" />
     </div>
     </div>
   </div>

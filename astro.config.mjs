@@ -10,5 +10,6 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.usi-avalanches.at',
+  base: process.env.GITHUB_PAGES === 'true' ? '/website/' : '/',
   integrations: [tailwind(), sitemap(), icon(), mdx()],
 });
