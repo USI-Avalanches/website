@@ -16,10 +16,14 @@ const base = import.meta.env.BASE_URL;
 <Layout title={title} seoTitle={seoTitle}>
 	<div class="site-shell" style={`--stone-image: url('${base}images/avalanche-stone.jpg')`}>
 		<header class="site-header">
-			<a class="brand" href={base} aria-label="USI Avalanches – Startseite">
+			<a class="brand" href={base} aria-label="USI Avalanches, Startseite">
 				<img src={`${base}images/avalanche-logo.png`} alt="USI Avalanches" />
 			</a>
-			<nav aria-label="Hauptnavigation">
+			<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Menü öffnen" data-menu-toggle>
+				<span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+				<span>Menü</span>
+			</button>
+			<nav id="primary-navigation" aria-label="Hauptnavigation">
 				<a href={`${base}wer-wir-sind`}>Team</a>
 				<a href={`${base}was-ist-flagfootball`}>Flag Football</a>
 				<a href={`${base}liga`}>Liga</a>
@@ -30,5 +34,48 @@ const base = import.meta.env.BASE_URL;
 			<slot />
 		</main>
 		<HeroFooter />
+		<section class="partner-footer" aria-labelledby="partner-heading">
+			<h2 id="partner-heading">Danke an unsere Partner</h2>
+			<div class="partner-logos">
+				<a href="https://ches.pro/" target="_blank" rel="noreferrer" aria-label="ESD, Evaluation Software Development">
+					<img src={`${base}images/partners/esd.png`} alt="ESD, Evaluation Software Development" loading="lazy" />
+				</a>
+				<a href="https://www.innsbruck.gv.at/" target="_blank" rel="noreferrer" aria-label="Stadt Innsbruck">
+					<img src={`${base}images/partners/stadt-innsbruck.png`} alt="Stadt Innsbruck" loading="lazy" />
+				</a>
+				<a href="https://www.askoe-tirol.at/" target="_blank" rel="noreferrer" aria-label="ASKÖ Tirol">
+					<img src={`${base}images/partners/askoe.png`} alt="ASKÖ Tirol" loading="lazy" />
+				</a>
+			</div>
+		</section>
 	</div>
 </Layout>
+
+<script>
+	document.addEventListener('click', (event) => {
+		const target = event.target;
+		if (!(target instanceof Element)) return;
+		const toggle = target.closest<HTMLButtonElement>('[data-menu-toggle]');
+		if (toggle) {
+			const open = toggle.getAttribute('aria-expanded') !== 'true';
+			toggle.setAttribute('aria-expanded', String(open));
+			toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+			document.getElementById(toggle.getAttribute('aria-controls') ?? '')?.classList.toggle('is-open', open);
+			return;
+		}
+		if (target.closest('#primary-navigation a')) {
+			const nav = document.getElementById('primary-navigation');
+			nav?.classList.remove('is-open');
+			const button = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+			button?.setAttribute('aria-expanded', 'false');
+			button?.setAttribute('aria-label', 'Menü öffnen');
+		}
+	});
+	document.addEventListener('keydown', (event) => {
+		if (event.key !== 'Escape') return;
+		document.getElementById('primary-navigation')?.classList.remove('is-open');
+		const button = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+		button?.setAttribute('aria-expanded', 'false');
+		button?.setAttribute('aria-label', 'Menü öffnen');
+	});
+</script>

@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL;
 <html lang="de">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="USI Avalanches – Flag Football aus Innsbruck. Lerne unser Team und den kontaktlosen Footballsport kennen." />
+		<meta name="description" content="USI Avalanches: Flag Football in Innsbruck. Lerne unser Team und den kontaktlosen Footballsport kennen." />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 		<link rel="icon" type="image/png" href={`${base}images/avalanche-logo.png`} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL;
 		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#101923" />
-		<SEO title={seoTitle ?? title} description="USI Avalanches – Flag Football aus Innsbruck." titleDefault="USI Avalanches" titleTemplate="%s | USI Avalanches" openGraph={{ basic: { title: seoTitle ?? title, type: 'website', image: 'https://www.usi-avalanches.at/wp-content/uploads/2019/04/USI-Avalanches-final-freigestellt.png' }, optional: { locale: 'de_AT' } }} />
+		<SEO title={seoTitle ?? title} description="USI Avalanches: Flag Football in Innsbruck." titleDefault="USI Avalanches" titleTemplate="%s | USI Avalanches" openGraph={{ basic: { title: seoTitle ?? title, type: 'website', image: 'https://www.usi-avalanches.at/wp-content/uploads/2019/04/USI-Avalanches-final-freigestellt.png' }, optional: { locale: 'de_AT' } }} />
 		<ViewTransitions />
 	</head>
 	<body class="flex-col flex min-h-screen bg-background"><slot /></body>
@@ -32,10 +32,20 @@ const base = import.meta.env.BASE_URL;
 	body { color: #f7f9fb; background: #101923; }
 	.site-shell { min-height: 100vh; background-color: #101923; background-image: linear-gradient(180deg, rgb(16 25 35 / 18%) 0%, rgb(16 25 35 / 48%) 24%, rgb(16 25 35 / 88%) 58%, #101923 82%, #101923 100%), var(--stone-image); background-position: center top; background-size: 100% 60vw, 100% auto; background-repeat: no-repeat; }
 	.site-header { max-width: 1200px; margin: 0 auto; padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+	.site-header { position: relative; }
 	.brand img { width: 92px; height: 70px; object-fit: contain; }
 	.site-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(.8rem, 2vw, 2rem); }
 	.site-header nav a { color: #f7f9fb; font: 600 .85rem Inter, sans-serif; text-decoration: none; text-transform: uppercase; letter-spacing: .08em; }
 	.site-header nav a:hover { color: var(--ice); }
+	.menu-toggle { display: none; align-items: center; gap: .65rem; border: 1px solid #ffffff38; border-radius: .4rem; padding: .65rem .8rem; background: #101923e8; color: #f7f9fb; font: 600 .75rem Inter, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+	.menu-icon { display: grid; gap: 4px; width: 18px; }
+	.menu-icon span { width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
+	.partner-footer { max-width: 1200px; margin: 2rem auto 0; padding: 2rem 1.5rem 3rem; border-top: 1px solid #ffffff20; text-align: center; }
+	.partner-footer h2 { margin: 0 0 1.5rem; color: #d8e0e8; font-size: 1.45rem; text-transform: uppercase; letter-spacing: .08em; }
+	.partner-logos { display: flex; align-items: center; justify-content: center; gap: clamp(2rem, 8vw, 6rem); flex-wrap: wrap; }
+	.partner-logos a { display: grid; place-items: center; min-width: 150px; height: 82px; }
+	.partner-logos img { max-width: 210px; max-height: 72px; width: auto; height: auto; object-fit: contain; }
+	.partner-logos a:first-child img { max-width: 190px; }
 	.page-content { max-width: 1200px; min-height: 45vh; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 	.page-content-home { max-width: none; padding: 0; }
 	.hero { min-height: min(700px, 78vh); max-width: 1200px; margin: 0 auto; padding: 8vh 1.5rem 5rem; display: flex; align-items: center; }
@@ -55,5 +65,19 @@ const base = import.meta.env.BASE_URL;
 	.home-tile img { z-index: -1; object-fit: cover; }
 	.tile-shade { z-index: 0; background: linear-gradient(0deg,#081321e8,transparent 80%); }
 	.home-tile h3 { position: relative; z-index: 1; margin: 0; padding: 1.4rem; font-size: 2rem; text-transform: uppercase; }
-	@media (max-width: 700px) { .site-header { align-items: flex-start; } .brand img { width: 66px; height: 54px; } .site-header nav { gap: .6rem .9rem; } .site-header nav a { font-size: .68rem; } .hero { min-height: 65vh; padding-top: 5rem; } .home-grid, .tile-grid { grid-template-columns: 1fr; } .home-section { padding-top: 3rem; padding-bottom: 3rem; } }
+	@media (max-width: 700px) {
+		.site-header { align-items: center; padding: .8rem 1rem; }
+		.brand img { width: 66px; height: 54px; }
+		.menu-toggle { display: inline-flex; }
+		.site-header nav { display: none; position: absolute; z-index: 10; top: calc(100% - .3rem); right: 1rem; min-width: 190px; padding: .65rem; flex-direction: column; gap: 0; border: 1px solid #ffffff24; border-radius: .5rem; background: #101923f5; box-shadow: 0 12px 32px #0008; }
+		.site-header nav.is-open { display: flex; }
+		.site-header nav a { padding: .85rem .75rem; font-size: .76rem; }
+		.hero { min-height: 65vh; padding-top: 5rem; }
+		.home-grid, .tile-grid { grid-template-columns: 1fr; }
+		.home-section { padding-top: 3rem; padding-bottom: 3rem; }
+		.partner-footer { padding-top: 1.5rem; }
+		.partner-logos { gap: 1.2rem 2rem; }
+		.partner-logos a { min-width: 120px; height: 60px; }
+		.partner-logos img, .partner-logos a:first-child img { max-width: 155px; max-height: 54px; }
+	}
 </style>

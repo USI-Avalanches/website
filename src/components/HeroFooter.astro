@@ -21,6 +21,10 @@ const content = [
       type: 'link',
       text: "Facebook",
       link: 'https://www.facebook.com/USIAvalanches/',
+    }, {
+      type: 'button',
+      text: "Newsletter abonnieren",
+      link: 'https://eepurl.com/gpkvIn',
     }],
   [{
       type: 'heading',
@@ -54,6 +58,8 @@ const content = [
                 return <h1 class="footer-heading uppercase text-2xl italic text-white">{item.text}</h1>
               } else if (item.type==='link') {
                 return <a class="footer-link" href={item.link}><p class="text-white">{item.text}</p></a>
+              } else if (item.type === 'button') {
+                return <a class="button newsletter-button" href={item.link} target="_blank" rel="noreferrer">{item.text}</a>
             } else {
               return null
             }})}
@@ -72,4 +78,6 @@ const content = [
   .footer-link + .footer-heading {
     margin-top: 1rem;
   }
+
+  .newsletter-button { margin-top: .5rem; font-size: .72rem; }
 </style>
