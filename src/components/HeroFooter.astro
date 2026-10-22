@@ -46,16 +46,16 @@ const content = [
 ---
 
 <footer
-  class="snap-end container mx-auto mt-48 pb-12 md:pb-4"
+  class="snap-end container mx-auto mt-8 pb-12 md:pb-4"
 >
   <div class="">
-    <section class="grid grid-cols-1 md:grid-cols-3 pt-10 md:pt-0">
+    <section class="grid grid-cols-1 md:grid-cols-2 pt-10 md:pt-0">
       {
         content.map((section) => (
-          <div class="px-12 py-2 md:py-12 text-center">
+          <div class="px-6 py-2 md:py-12 text-center">
             {section.map((item) => {
               if (item.type === 'heading') {
-                return <h1 class="footer-heading uppercase text-2xl italic text-white">{item.text}</h1>
+                return <h2 class="footer-heading uppercase text-2xl italic text-white">{item.text}</h2>
               } else if (item.type==='link') {
                 return <a class="footer-link" href={item.link}><p class="text-white">{item.text}</p></a>
             } else {
@@ -64,9 +64,6 @@ const content = [
           </div>
         ))
       }
-      <div class="p-4 col-span-1 flex justify-center content-center items-center" >
-      <img src={`${base}images/avalanche-logo.png`} alt="USI Avalanches" class="max-h-28 md:max-h-48 w-auto" />
-    </div>
     </div>
   </div>
 </footer>
