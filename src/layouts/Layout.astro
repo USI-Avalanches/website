@@ -59,8 +59,8 @@ const base = import.meta.env.BASE_URL;
 	.home-section h2 { margin: 0 0 1rem; font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
 	.home-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
 	.team-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: .5rem; box-shadow: 0 20px 50px #0007; }
-	.tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-	.home-tile { position: relative; isolation: isolate; display: flex; aspect-ratio: 16 / 9; min-height: 180px; align-items: flex-end; overflow: hidden; border: 1px solid #ffffff30; border-radius: .5rem; color: white; text-decoration: none; }
+	.tile-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+	.home-tile { position: relative; isolation: isolate; display: flex; min-width: 0; aspect-ratio: 16 / 9; min-height: 180px; align-items: flex-end; overflow: hidden; border: 1px solid #ffffff30; border-radius: .5rem; color: white; text-decoration: none; }
 	.home-tile img, .tile-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 	.home-tile img { z-index: -1; object-fit: cover; }
 	.tile-shade { z-index: 0; background: linear-gradient(0deg,#081321e8,transparent 80%); }
@@ -79,5 +79,9 @@ const base = import.meta.env.BASE_URL;
 		.partner-logos { gap: 1.2rem 2rem; }
 		.partner-logos a { min-width: 120px; height: 60px; }
 		.partner-logos img, .partner-logos a:first-child img { max-width: 155px; max-height: 54px; }
+	}
+	@media (min-width: 701px) and (max-width: 900px) {
+		.tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.home-tile:last-child { grid-column: 1 / -1; justify-self: center; width: calc((100% - 1rem) / 2); }
 	}
 </style>
