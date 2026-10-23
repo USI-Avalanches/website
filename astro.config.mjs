@@ -9,7 +9,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.usi-avalanches.at',
-  base: process.env.GITHUB_PAGES === 'true' ? '/website/' : '/',
+  site: 'https://usi-avalanches.at',
+  base: '/',
   integrations: [tailwind(), sitemap(), icon(), mdx()],
 });
