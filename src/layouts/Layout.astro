@@ -16,7 +16,8 @@ const base = import.meta.env.BASE_URL;
 		<link rel="icon" type="image/png" href={`${base}images/avalanche-logo.png`} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href={`${base}fonts/costa-rica.css`} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#101923" />
 		<SEO title={seoTitle ?? title} description="USI Avalanches: Flag Football in Innsbruck." titleDefault="USI Avalanches" titleTemplate="%s | USI Avalanches" openGraph={{ basic: { title: seoTitle ?? title, type: 'website', image: 'https://www.usi-avalanches.at/wp-content/uploads/2019/04/USI-Avalanches-final-freigestellt.png' }, optional: { locale: 'de_AT' } }} />
@@ -27,7 +28,7 @@ const base = import.meta.env.BASE_URL;
 
 <style is:global>
 	:root { color-scheme: dark; --ice: #76a8d3; --red: #dc222d; }
-	h1, h2, h3, .bigFont { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
+	h1, h2, h3, .bigFont { font-family: 'Costa Rica', sans-serif; font-weight: 800; }
 	p { font-family: 'Inter', sans-serif; font-weight: 400; }
 	body { color: #f7f9fb; background: #101923; }
 	.site-shell { min-height: 100vh; background-color: #101923; background-image: linear-gradient(180deg, rgb(16 25 35 / 18%) 0%, rgb(16 25 35 / 48%) 24%, rgb(16 25 35 / 88%) 58%, #101923 82%, #101923 100%), var(--stone-image); background-position: center top; background-size: 100% 60vw, 100% auto; background-repeat: no-repeat; }
@@ -42,6 +43,9 @@ const base = import.meta.env.BASE_URL;
 	.menu-icon span { width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
 	.partner-footer { max-width: 1200px; margin: 2rem auto 0; padding: 2rem 1.5rem 3rem; border-top: 1px solid #ffffff20; text-align: center; }
 	.partner-footer h2 { margin: 0 0 1.5rem; color: #d8e0e8; font-size: 1.45rem; text-transform: uppercase; letter-spacing: .08em; }
+	.photo-credit { margin: 1rem 0 0; color: #aebdca; font: 400 .8rem/1.5 Inter, sans-serif; }
+	.photo-credit a { color: #d8e0e8; text-decoration: underline; text-underline-offset: .2em; }
+	.photo-credit a:hover { color: var(--ice); }
 	.partner-logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; justify-items: center; gap: 1.5rem; }
 	.partner-logos a { display: grid; place-items: center; width: 100%; min-width: 0; height: 96px; padding: 1rem 1.25rem; border: 1px solid #ffffff90; border-radius: .55rem; background: #fff; box-shadow: 0 8px 22px #0004; transition: transform .2s ease, box-shadow .2s ease; }
 	.partner-logos a:hover { transform: translateY(-3px); box-shadow: 0 12px 28px #0006; }

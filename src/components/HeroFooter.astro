@@ -55,7 +55,7 @@ const content = [
           <div class="px-6 py-2 md:py-12 text-center">
             {section.map((item) => {
               if (item.type === 'heading') {
-                return <h2 class="footer-heading uppercase text-2xl italic text-white">{item.text}</h2>
+                return <h2 class="footer-heading uppercase text-2xl text-white">{item.text}</h2>
               } else if (item.type==='link') {
                 return <a class="footer-link" href={item.link}><p class="text-white">{item.text}</p></a>
             } else {
