@@ -20,7 +20,7 @@ const base = import.meta.env.BASE_URL;
 		<link rel="stylesheet" href={`${base}fonts/costa-rica.css`} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#101923" />
-		<SEO title={seoTitle ?? title} description="USI Avalanches: Flag Football in Innsbruck." titleDefault="USI Avalanches" titleTemplate="%s | USI Avalanches" openGraph={{ basic: { title: seoTitle ?? title, type: 'website', image: 'https://www.usi-avalanches.at/wp-content/uploads/2019/04/USI-Avalanches-final-freigestellt.png' }, optional: { locale: 'de_AT' } }} />
+		<SEO title={seoTitle ?? title} description="USI Avalanches: Flag Football in Innsbruck." titleDefault="USI Avalanches" titleTemplate="%s | USI Avalanches" openGraph={{ basic: { title: seoTitle ?? title, type: 'website', image: new URL(`${base}images/avalanche-social-logo.png`, Astro.site).toString() }, optional: { locale: 'de_AT' } }} />
 		<ViewTransitions />
 	</head>
 	<body class="flex-col flex min-h-screen bg-background"><slot /></body>
